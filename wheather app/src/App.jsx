@@ -14,6 +14,7 @@ function showdata() {
   inputval.push(val.current.value)
   setinputval(inputval)
   console.log(inputval);
+  getdata()
   
 
   val.current.value = ""
@@ -36,8 +37,7 @@ function showdata() {
 
 <div>
    {
-    
-   async function getdata(){
+   async function getdata() {
     try {
 
         let data = await axios(`https://api.weatherapi.com/v1/current.json?key=6326e206cf9041e5b3853528241406&q=${val.current.value}&aqi=no`)
