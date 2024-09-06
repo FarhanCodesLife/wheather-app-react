@@ -38,8 +38,8 @@ setallwheathers([...allwheathers])
 <div>
   {allwheathers.map((items ,index)=>{
 
-    return <div key={index} style={{border:"2px"}}>
-      
+    return <div key={index} >
+
       <h1>{items.location.name}</h1>
       <h1>{items.location.country}</h1>
       <h1>{items.location.region}</h1>
