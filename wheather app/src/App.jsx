@@ -1,77 +1,54 @@
-import axios from 'axios'
-import React, { useEffect, useRef, useState } from 'react'
+import axios from 'axios';
+import React, { useRef, useState } from 'react'
+
+
+
+
 
 function App() {
+let [allwheathers,setallwheathers] = useState([])
+  let inputval = useRef()
 
-  let [inputval,setinputval]=useState([])
-  let [wheatherdata,setwhetherdata]= useState([])
- 
-    async function getdata() {
-    try {
+  function wheathershow(event) {
+    event.preventDefault()
+    console.log(inputval.current.value);
 
-        let data = await axios(`https://api.weatherapi.com/v1/current.json?key=6326e206cf9041e5b3853528241406&q=${val.current.value}&aqi=no`)
-        console.log(data);
-wheatherdata.push(data.data)
-setwhetherdata(wheatherdata)
-console.log(wheatherdata);
+    axios(`https://api.weatherapi.com/v1/current.json?key=e3e98122324b454b92f44333241406&q=${inputval.current.value}&aqi=no`)
+    .then((res)=>{
+console.log(res.data.location);
+allwheathers.unshift(res.data)
+setallwheathers([...allwheathers])
 
-// renderdata()
-
-      }
-     catch (error) {
-      console.log(error);
-      
-    }
+    })
     
+  inputval.current.value = ''
     
   }
 
-let val = useRef()
-function showdata() {
-  console.log(val.current.value);
-  inputval.push(val.current.value)
-  setinputval(inputval)
-  console.log(inputval);
-  getdata()
-  
-
-  val.current.value = ""
-
-
-  
-
-  
-}
-
   return (
-
-<>
-
-<div>App</div>
-<input type="text" placeholder='enter city name' ref={val} />
-<button onClick={showdata} >add city</button>
-
-
+    <>
+    <div>App</div>
+    <div>
+      <form onSubmit={wheathershow}>
+        <input type="text" placeholder='enter city name' ref={inputval}/>
+        <button>show wheather</button>
+      </form>
+    </div>
 
 <div>
-  {wheatherdata ? <div>
-    {wheatherdata.map((items)=>{
-      return <div>
+  {allwheathers.map((items ,index)=>{
 
-        <h1>{items.location.name}</h1>
-      </div>
-    })}
-    </div>:<div><h1>loading</h1></div>}
+    return <div key={index} style={{border:"2px"}}>
+      
+      <h1>{items.location.name}</h1>
+      <h1>{items.location.country}</h1>
+      <h1>{items.location.region}</h1>
+    </div>
+
+  })}
 </div>
 
-
-
-
-
-</>
-
-
-
+    </>
   )
 }
 
