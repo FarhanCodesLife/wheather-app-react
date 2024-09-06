@@ -11,7 +11,6 @@ let [allwheathers,setallwheathers] = useState([])
 
   function wheathershow(event) {
     event.preventDefault()
-    console.log(inputval.current.value);
 
     axios(`https://api.weatherapi.com/v1/current.json?key=e3e98122324b454b92f44333241406&q=${inputval.current.value}&aqi=no`)
     .then((res)=>{
@@ -19,6 +18,11 @@ console.log(res.data.location);
 allwheathers.unshift(res.data)
 setallwheathers([...allwheathers])
 
+    })
+    .catch((error)=>{
+      alert(`solve this error` + error)
+      console.log(`solve this error ==> ` + error)
+      
     })
     
   inputval.current.value = ''
