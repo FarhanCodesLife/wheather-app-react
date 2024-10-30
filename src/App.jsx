@@ -53,8 +53,8 @@ function App() {
               className="w-16 h-16 rounded-full border-2 border-white/50 shadow-lg"
             />
             <div className="text-white">
-              <h2 className="text-xl font-semibold">Developed by</h2>
-              <p className="text-white/80">Muhammad Farhan</p>
+              <h2 className="text-xl font-semibold">Muhammad Farhan</h2>
+              {/* <p className="text-white/80">Muhammad Farhan</p> */}
               
             </div>
           </div>
