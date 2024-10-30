@@ -36,7 +36,6 @@ function App() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Updated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 animate-gradient">
         <div className="absolute inset-0 opacity-40">
           <div className="absolute top-0 -left-4 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -45,10 +44,8 @@ function App() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="relative z-10 p-8">
         <div className="max-w-4xl mx-auto">
-          {/* New Developer Showcase Section */}
           <div className="flex items-center justify-center mb-8 space-x-4">
             <img 
               src="https://avatars.githubusercontent.com/u/153673449?s=400&u=70f498ec5f53a8fe50bead7ef407ec9e5e5a9191&v=4" 
@@ -66,7 +63,6 @@ function App() {
             Weather Forecast
           </h1>
           
-          {/* Updated Search Box */}
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 mb-8 shadow-lg border-2 border-white/20">
             <form onSubmit={fetchWeather} className="flex gap-4">
               <input 
@@ -94,14 +90,12 @@ function App() {
             )}
           </div>
 
-          {/* Updated Weather Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {weatherData.map((item, index) => (
               <div 
                 key={index}
                 className="bg-gradient-to-br from-white/5 to-black shadow-lg backdrop-blur-md rounded-xl overflow-hidden transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl border border-white group"
               >
-                {/* Card Header with new gradient */}
                 <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 p-4 border-b border-white/10">
                   <div className="flex items-center justify-between">
                     <h2 className="text-2xl font-bold text-white">{item.location.name}</h2>
@@ -112,7 +106,6 @@ function App() {
                   <p className="text-sm text-white/70">{item.location.region}, {item.location.country}</p>
                 </div>
 
-                {/* Card Body with enhanced colors */}
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-4">
                     <div>
@@ -138,7 +131,6 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Weather Details Grid with new styling */}
                   <div className="grid grid-cols-2 gap-4 mt-4 pt-4 border-t border-white/10">
                     <div className="flex items-center gap-2">
                       <svg className="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
